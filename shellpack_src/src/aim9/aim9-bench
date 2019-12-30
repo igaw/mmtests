@@ -34,6 +34,7 @@ TESTLIST=
 EXPECT=`which expect`
 EXPECT_SCRIPT=$SHELLPACK_TEMP/aim9-expect
 cat > $EXPECT_SCRIPT <<EOF
+set timeout $((TESTTIME + 2))
 spawn ./singleuser
 expect "s name"             { exp_send $HOSTNAME\\r }
 expect "s configuration"    { exp_send $RELEASE\\r  }
